@@ -1,10 +1,9 @@
-import scrapy
 from scrapy.crawler import CrawlerProcess
 from scrapy.utils.project import get_project_settings
 from pymongo import MongoClient
 
 from utils.debug_color import debug_print
-from spiders import KboSpider, EjusticeSpider, ConsultSpider, scraping_stats
+from spiders import KboSpider, scraping_stats
 
 # Configuration MongoDB
 MONGO_URI = 'mongodb://localhost:27017/'
@@ -73,7 +72,7 @@ def configure_crawler():
         'main.MongoDBPipeline': 300,
     })
     settings.set('USER_AGENT', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36')
-    settings.set('LOG_ENABLED', False)  # Désactiver les logs Scrapy par défaut
+    settings.set('LOG_ENABLED', True)  # logs Scrapy par défaut
     settings.set('DOWNLOAD_DELAY', 1)
     return settings
 
