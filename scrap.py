@@ -73,7 +73,7 @@ class KboSpider(scrapy.Spider):
     def load_numeros_entreprise(self):
         numeros = []
         try:
-            with open('enterprise.csv', 'r') as f:
+            with open('enterprise_cropped.csv', 'r') as f:
                 csv_reader = csv.reader(f)
                 for row in csv_reader:
                     if row and len(row) > 0 and row[0].strip('"'):
